@@ -16,12 +16,13 @@ const App = () => {
   const [imc, setIMC] = useState();
 
   const calcularIMC = () => {
-    setIMC(peso / (altura * altura));
-    if (imc < 18.5) setLegenda("Magreza");
-    if (imc >= 15.5 && imc < 25) setLegenda("Normal");
-    if (imc >= 25 && imc < 30) setLegenda("Sobrepeso");
-    if (imc >= 30 && imc < 40) setLegenda("Obesidade");
-    if (imc >= 40) setLegenda("Obesidade Grave");
+    const resultado = peso / (altura * altura) 
+    setIMC(resultado);
+    if (resultado < 18.5) setLegenda("Magreza");
+    if (resultado >= 15.5 && resultado < 25) setLegenda("Normal");
+    if (resultado >= 25 && resultado < 30) setLegenda("Sobrepeso");
+    if (resultado >= 30 && resultado < 40) setLegenda("Obesidade");
+    if (resultado >= 40) setLegenda("Obesidade Grave");
   };
 
   return(
@@ -44,12 +45,14 @@ const App = () => {
           style={styles.peso}
           onChangeText={onChangePeso}
           value={parseFloat(peso)}
+          placeholder="Digite seu peso"
           keyboardType="numeric"
         />
         <TextInput 
           style={styles.altura}
           onChangeText={onChangeAltura}  
           value={parseFloat(altura)}
+          placeholder="Digite sua altura"
           keyboardType="numeric"
         />
         <Button 

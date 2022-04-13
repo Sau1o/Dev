@@ -12,13 +12,13 @@ import {
 
   const [peso, onChangePeso] = useState(null);
   const [altura, onChangeAltura] = useState(null);
-  const [legenda, setLegenda] = useState(null);
-  const [imc, setIMC] = useState();
+  const [legenda, setLegenda] = useState('Indeterminado');
+  const [imc, setIMC] = useState(0);
   const [cor, setCor] = useState('#bdc3c7');
 
   const calcularIMC = () => {
     const resultado = peso / (altura * altura) 
-    setIMC(resultado);
+    setIMC(resultado.toFixed(2));
     if (resultado < 18.5){
       setLegenda("Magreza");
       setCor('#16a085');
@@ -60,14 +60,14 @@ import {
         <TextInput
           style={styles.peso}
           onChangeText={onChangePeso}
-          value={parseFloat(peso)}
+          value={peso}
           placeholder="Digite seu peso"
           keyboardType="numeric"
         />
         <TextInput 
           style={styles.altura}
           onChangeText={onChangeAltura}  
-          value={parseFloat(altura)}
+          value={altura}
           placeholder="Digite sua altura"
           keyboardType="numeric"
         />

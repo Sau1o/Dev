@@ -8,7 +8,7 @@ const Main = () => {
   <View>
     <Text>Lista Leitura</Text>
     <TouchableOpacity>
-        <Icon name="add" size={30} color='#000'/>
+        <Icon name="add" size={60} color='#000'/>
     </TouchableOpacity>
   </View>
   );

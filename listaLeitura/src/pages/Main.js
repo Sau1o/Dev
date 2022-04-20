@@ -27,8 +27,9 @@ const Main = () => {
             photo: null,
         },
     ]
+
   return(
-  <View>
+  <View style={styles.container}>
     <Text>Lista Leitura</Text>
     <TouchableOpacity>
         <Icon name="add" size={60} color='#000'/>
@@ -43,6 +44,9 @@ const Main = () => {
 }
 
 const styles = StyleSheet.create({
-
+    container: {
+        flex:1,
+        padding: 10,
+    }
 })
 export default Main;

@@ -30,14 +30,20 @@ const Main = () => {
 
   return(
   <View style={styles.container}>
-    <Text>Lista Leitura</Text>
-    <TouchableOpacity>
-        <Icon name="add" size={60} color='#000'/>
-    </TouchableOpacity>
+    <View style={styles.toolbox}>
+      <Text style={styles.title}>Lista Leitura</Text>
+        <TouchableOpacity style={styles.toolBoxButton}>
+            <Icon name="add" size={14} color='#FFF'/>
+        </TouchableOpacity>
+    </View>
     <FlatList 
         data={data} 
         keyExtractor={item => item.id}
-        renderItem={({item})=> <Text>{item.title}</Text>} 
+        renderItem={({item})=> (
+            <TouchableOpacity style={styles.itemButton}>
+                <Text style={styles.itemText}>{item.title}</Text>
+            </TouchableOpacity>
+        )} 
     />
   </View>
   );
@@ -47,6 +53,28 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
         padding: 10,
-    }
+    },
+    toolbox:{
+        flexDirection: 'row',
+        marginBottom:5,
+    },
+    title:{
+        fontSize: 16,
+        flex:1,
+        color:'#3498db',
+    },
+    toolBoxButton:{
+        backgroundColor:"#3498db",
+        width: 22,
+        height: 22,
+        borderRadius:20,
+        justifyContent:"center",
+        alignItems:'center',
+    },
+    itemButton:{},
+    itemText:{
+        fontSize:16,
+    },
+
 })
 export default Main;
